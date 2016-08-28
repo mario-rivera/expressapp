@@ -124,13 +124,13 @@ module.exports = function(grunt){
 				livereload: false,
                 cliArgs: ['--gruntfile', require('path').join(GruntfileDir, 'Gruntfile.js')]
 			},
-            devdesktop: {
-                files: ['<%= site.src %>/less/**/*.less', '<%= site.src %>/js/**/*.js', '<%= site.templates %>/**/*.{pug,json,yml}'],
-                tasks: ['less:site', 'concat:site', 'uglify:site', 'pug:desktop']
-            },
-            devphonegap: {
+            phonegap: {
                 files: ['<%= site.src %>/less/**/*.less', '<%= site.src %>/js/**/*.js', '<%= site.templates %>/**/*.{pug,json,yml}'],
                 tasks: ['less:site', 'concat:site', 'uglify:site', 'pug:phonegap']
+            },
+            desktop: {
+                files: ['<%= site.src %>/less/**/*.less', '<%= site.src %>/js/**/*.js', '<%= site.templates %>/**/*.{pug,json,yml}'],
+                tasks: ['less:site', 'concat:site', 'uglify:site', 'pug:desktop']
             }
 		},
         // PUG
@@ -140,10 +140,10 @@ module.exports = function(grunt){
                 debug: false,
                 data: {
                     site: '<%= site %>',
-                    phonegap: false
+                    phonegap: true
                 }
             },
-            desktop: {
+            phonegap: {
                 files: [
                     {
                         expand: true,
@@ -154,11 +154,11 @@ module.exports = function(grunt){
                     }
                 ]
             },
-            phonegap: {
+            desktop: {
                 options: {
                     data: {
                         site: '<%= site %>',
-                        phonegap: true
+                        phonegap: false
                     }
                 },
                 files: [
@@ -184,7 +184,7 @@ module.exports = function(grunt){
     grunt.loadNpmTasks('grunt-contrib-pug');
     
     // Default task
-  	grunt.registerTask('default', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:desktop']);
+  	grunt.registerTask('default', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:phonegap']);
     // Phonegap task
-  	grunt.registerTask('phonegap', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:phonegap']);
+  	grunt.registerTask('desktop', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:desktop']);
 };
