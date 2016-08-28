@@ -140,7 +140,8 @@ module.exports = function(grunt){
                 debug: false,
                 data: {
                     site: '<%= site %>',
-                    phonegap: true
+                    phonegap: true,
+                    publish: false
                 }
             },
             phonegap: {
@@ -158,7 +159,26 @@ module.exports = function(grunt){
                 options: {
                     data: {
                         site: '<%= site %>',
-                        phonegap: false
+                        phonegap: false,
+                        publish: false
+                    }
+                },
+                files: [
+                    {
+                        expand: true,
+                        flatten: true,
+                        src: ['<%= site.templates %>/*.pug', '<%= site.templates %>/application/*.pug'],
+                        dest: '<%= site.dest %>',
+                        ext: ".html"
+                    }
+                ]
+            },
+            publish: {
+                options: {
+                    data: {
+                        site: '<%= site %>',
+                        phonegap: true,
+                        publish: true
                     }
                 },
                 files: [
@@ -185,6 +205,8 @@ module.exports = function(grunt){
     
     // Default task
   	grunt.registerTask('default', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:phonegap']);
-    // Phonegap task
+    // Desktop task
   	grunt.registerTask('desktop', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:desktop']);
+    // Phonegap publish task
+  	grunt.registerTask('publish', ['copy', 'less', 'cssmin', 'concat', 'uglify', 'pug:publish']);
 };

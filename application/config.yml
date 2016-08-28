@@ -11,3 +11,6 @@ timestamp:        <%= new Date().getTime() %>
 
 # Templates
 templates:        <%= site.src %>/templates
+
+# EXPRESS API
+apiurl:           http://express-mariortdev.rhcloud.com/api

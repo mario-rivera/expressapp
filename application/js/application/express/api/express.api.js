@@ -11,8 +11,7 @@ var AJAX = Namespace( 'API.AJAX', EXPRESS );
 var UTILITY = Namespace( 'API.UTILITY', EXPRESS );
 
 
-API.url = "http://express.dev/api";
-// API.url = "http://express-mariortdev.rhcloud.com/api";
+API.url = (typeof EXPRESS_API_URL != 'undefined') ? EXPRESS_API_URL : "http://express.dev/api";
 
 API.call = function( settings ){
 	var xhrsettings = UTILITY.prepareSettings( settings );

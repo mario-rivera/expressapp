@@ -1,6 +1,8 @@
 if phonegap
     script(type="text/javascript", src="cordova.js")
-    
+    if publish
+        script(type="text/javascript").
+            var EXPRESS_API_URL = "#{site.apiurl}";
 // scripts
 script(type="text/javascript", src="js/application/base.min.js?v=" + site.timestamp)
 script(type="text/javascript", src="js/application/application.min.js?v=" + site.timestamp)
