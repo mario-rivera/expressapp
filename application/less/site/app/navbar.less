@@ -1,0 +1,153 @@
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+nav > ul,
+nav > ul > li{
+	margin: 0;
+}
+
+nav > ul {
+	list-style: none;
+}
+
+nav > ul > li {
+	display: inline-block;
+}
+
+nav > ul > li > a{
+	padding: 15px;
+	display: block;
+}
+
+
+nav.navbar{
+	background-color: #FFF;
+
+	min-height: 50px;
+
+	border: none;
+
+	-webkit-box-shadow: 0 0 2px rgba(0,0,0,.3);
+	-moz-box-shadow: 0 0 2px rgba(0,0,0,.3);
+	box-shadow: 0 0 2px rgba(0,0,0,.3);
+}
+
+nav.navbar .sidebar-toggle{
+	float: right;
+
+	margin: 7px 15px 0 0;
+}
+
+nav.navbar a.brand{
+	color: #777;
+	text-decoration: none;
+}
+
+nav.navbar a.brand:hover{
+	color: #5e5e5e;
+}
+
+nav.navbar a.brand.text-brand{
+	/*Combination of height/line-height will center text vertically*/
+	height: 50px;
+	line-height: 50px;
+
+	padding: 15px;
+	font-size: 1.5em;
+}
+
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+
+	nav.navbar{
+		height: 54px;
+	}
+
+	nav.navbar > .navbar-left{
+		float: left;
+	}
+
+	nav.navbar > .navbar-right{
+		float: right;
+	}
+
+	nav.navbar .sidebar-toggle{
+		display: none;
+	}
+}
+
+
+
+
+
+
+
+.nav-sidebar{
+	position: fixed;
+	overflow-y: auto;
+	z-index: 1000;
+
+	background-color: #303641;
+
+	top: 0;
+	height: 100%;
+
+	width: 250px;
+	/*Hidden from view by default*/
+	left: -250px; 
+	
+	.transition-all( 0.5s, ease-out );
+}
+
+.nav-sidebar ul{
+	list-style: none;
+	margin-bottom: 0;
+	padding-left: 0;
+}
+
+.nav-sidebar ul > li,
+.nav-sidebar ul > li > a{
+	position: relative;
+	display: block;
+}
+
+.nav-sidebar ul > li{
+	margin: 0;
+}
+
+.nav-sidebar ul > li.nav-header{
+	color: #6d7983;
+	padding: 12px 20px;
+
+	font-size: 0.8em;
+}
+
+.nav-sidebar ul > li > a{
+	padding: 8px 20px;
+	color: #a8acb1;
+
+	text-decoration: none;
+}
+
+.nav-sidebar ul > li > a:hover{
+	background-color: #232a2f;
+	color: #a8acb1;
+}
+
+.nav-sidebar ul > li.active > a{
+	color: #fff;
+	background-color: #00acac;
+}
+
+/* Larger than tablet */
+@media (min-width: 750px) {
+	.nav-sidebar{
+		/*Display sidebar*/
+		left: 0px;
+		margin-top: 54px;
+	}
+}

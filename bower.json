@@ -1,0 +1,13 @@
+{
+    "name": "expressmobile",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "skeleton": "~2.0.4",
+        "fontawesome": "~4.6.1",
+        "jquery": "^3.0.0",
+        "secstore.js": "^0.1.2",
+        "sjcl": "^1.0.3",
+        "noty": "^2.3.8"
+    }
+}

@@ -1,0 +1,11 @@
+extends ./master.pug
+block append vars
+    -var bodyclass="application"
+    - var controller = "APP"
+block content
+    // main nav
+    include ../includes/navbar.pug
+    // content
+    block content
+block scripts
+    block scripts

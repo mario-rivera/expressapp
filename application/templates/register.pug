@@ -1,0 +1,17 @@
+extends ./layouts/master.pug
+block append vars
+    - var controller = "REGISTER"
+block title
+    title Register | Express Deux Rues
+block content
+    div(class="page-header")
+        div(class="centered")
+            a(href="javascript:;", class="logo")
+                img(src="img/logo@2x.png", alt="Logo")
+            p Register here!
+    div(class="container")
+        form
+            div(class="row")
+                div(class="six columns")
+                    label(for="") Name
+                    input(class="u-full-width form-control", type="text")

@@ -1,0 +1,31 @@
+extends ./layouts/master.pug
+block append vars
+    - var controller = "LOGIN"
+block title
+    title Login | Express Deux Rues
+block content
+    div(class="page-header")
+        div(class="centered")
+            a(href="javascript:;", class="logo")
+                img(src="img/logo@2x.png", alt="Logo")
+            p Dear user, log in to access the admin area!
+    
+    div(class="login-area")
+            form(id="login")
+                div(class="form-row")
+                    div(class="iconed-input")
+                        i(class="fa fa-user", aria-hidden="true")
+                        input(class="u-full-width form-control", type="email", placeholder="Username", name="email")
+                div(class="form-row")
+                    div(class="iconed-input")
+                        i(class="fa fa-lock", aria-hidden="true")
+                        input(class="u-full-width form-control", type="password", placeholder="Password", name="password")
+                div(class="form-row")
+                    button(type="submit") Log In
+                        i(class="fa fa-sign-in", aria-hidden="true")
+            div(class="centered login-bottom-links")
+                div
+                    a(href="javascript:;") Forgot your password?
+                div
+                    a(href="register.html") Register
+block scripts

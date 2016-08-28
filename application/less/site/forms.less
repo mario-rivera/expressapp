@@ -1,0 +1,55 @@
+@form-control-border-color: #D1D1D1;
+@form-control-error-border-color: #a94442;
+
+@help-block-color: #737373;
+@help-block-error-color: @form-control-error-border-color;
+
+form{
+	> .form-row{
+		margin-bottom: 1.5rem;
+	}
+
+	.form-control{
+		margin-bottom: 0;
+		border: 1px solid @form-control-border-color;
+	}
+
+	.iconed-input{
+		position: relative;
+
+		i{
+			left: 10px;
+			// align vertically
+			position: absolute;
+			top: 50%;
+			.translateY(-50%);
+		}
+
+		.form-control{
+			padding-left: 30px;
+		}
+	}
+	
+	.help-block{
+		display: block;
+		color: @help-block-color;
+		margin: 5px 0;
+	}
+}
+
+form > .form-row
+{
+	&.has-error{
+		.form-control{
+			border: 1px solid @form-control-error-border-color;
+			
+			&:focus{
+				border-color: saturate(@form-control-error-border-color, 20%);
+			}
+		}
+		
+		.help-block{
+			color: @help-block-error-color;
+		}
+	}
+}

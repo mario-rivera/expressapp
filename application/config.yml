@@ -1,0 +1,13 @@
+# =============================================
+# Build config
+# =============================================
+
+base:             .
+root:             ..
+src:              <%= site.base %>/application
+dest:             <%= site.root %>/www
+
+timestamp:        <%= new Date().getTime() %>
+
+# Templates
+templates:        <%= site.src %>/templates

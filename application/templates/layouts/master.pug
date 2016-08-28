@@ -1,0 +1,20 @@
+block vars
+    - var bodyclass = "public"
+    - var controller = "SPLASH"
+doctype html
+html(class="no-js", lang="")
+    head
+        block head
+            include ../includes/block.head.pug
+        
+        block title
+            title Express Deux Rues
+        
+        //styles
+        link(rel="stylesheet", href="css/base.min.css?v=" + site.timestamp)
+        link(rel="stylesheet", href="css/theme.min.css?v=" + site.timestamp)
+        block styles
+    body(class=bodyclass, data-controller=controller)
+        block content
+        
+        include ../includes/block.scripts.pug

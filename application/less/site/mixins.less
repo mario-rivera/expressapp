@@ -1,0 +1,12 @@
+.transition-all( @duration: 0.5s, @timing: ease ){
+	-webkit-transition: all @arguments;
+    -moz-transition: all @arguments;
+    -o-transition: all @arguments;
+    transition: all @arguments;
+}
+
+.translateY( @value ){
+	-webkit-transform: translateY(@value);
+	-ms-transform: translateY(@value);
+	transform: translateY(@value);
+}

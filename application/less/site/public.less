@@ -1,0 +1,58 @@
+@public-bg: #303641;
+@public-color: #949494;
+
+@public-bg-lighter: #373e4a;
+
+// this will overwrite the value declared in forms.less
+@form-control-border-color: @public-bg-lighter;
+
+body.public{
+	background: @public-bg;
+	color: @public-color;
+	
+	.page-header{
+		position: relative;
+		background: @public-bg-lighter;
+		padding: 100px 0; 
+	}
+	
+	.centered{
+		position: relative;
+		width: 50%;
+		min-width: 320px;
+		margin: 0 auto;
+		text-align: center;
+	}
+	
+	a.logo{
+		display: block;
+		margin-bottom: 2.5rem;
+
+		img{
+			width: 150px;
+		}
+	}
+	
+	a,
+	.link{
+		color: rgba(255,255,255,0.7);
+		text-decoration: none;
+
+		.transition-all( 0.5s, ease-out );
+
+		&:hover,
+		&:focus{
+			color: rgba(255,255,255,1);
+		}
+	}
+	
+	form{
+		.form-control{
+			background: @public-bg-lighter;
+
+			&:focus{
+				border-color: rgba(98, 111, 133, 0.5);
+			}
+		}
+	}
+}
