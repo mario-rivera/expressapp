@@ -10,22 +10,22 @@ block content
                 img(src="img/logo@2x.png", alt="Logo")
             p Dear user, log in to access the admin area!
     
-    div(class="login-area")
+    div(class="container login-area")
             form(id="login")
-                div(class="form-row")
+                div(class="form-row form-group")
                     div(class="iconed-input")
                         i(class="fa fa-user", aria-hidden="true")
                         input(class="u-full-width form-control", type="email", placeholder="Username", name="email")
-                div(class="form-row")
+                div(class="form-row form-group")
                     div(class="iconed-input")
                         i(class="fa fa-lock", aria-hidden="true")
                         input(class="u-full-width form-control", type="password", placeholder="Password", name="password")
                 div(class="form-row")
-                    button(type="submit") Log In
+                    button(type="submit", class="u-full-width") Log In
                         i(class="fa fa-sign-in", aria-hidden="true")
             div(class="centered login-bottom-links")
                 div
-                    a(href="javascript:;") Forgot your password?
-                div
                     a(href="register.html") Register
+                div
+                    a(href="javascript:;") Forgot your password?
 block scripts

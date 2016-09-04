@@ -10,8 +10,20 @@ block content
                 img(src="img/logo@2x.png", alt="Logo")
             p Register here!
     div(class="container")
-        form
-            div(class="row")
-                div(class="six columns")
+        form(id="register")
+            div(class="row form-row")
+                div(class="six columns form-group")
                     label(for="") Name
-                    input(class="u-full-width form-control", type="text")
+                    input(class="u-full-width form-control", type="text", name="name")
+                div(class="six columns form-group")
+                    label(for="") Email
+                    input(class="u-full-width form-control", type="email", name="email")
+            div(class="row form-row")
+                div(class="six columns form-group")
+                    label(for="") Password
+                    input(class="u-full-width form-control", type="password", name="password")
+                div(class="six columns form-group")
+                    label(for="") Password Confirmation
+                    input(class="u-full-width form-control", type="password", name="password_confirmation")
+            button(type="submit") Register
+                    

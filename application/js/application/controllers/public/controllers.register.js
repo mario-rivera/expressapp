@@ -1,22 +1,22 @@
 /*
 |--------------------------------------------------------------------------
-| Login Controller
+| Register User Controller
 |--------------------------------------------------------------------------
 |
 */
 (function ( $, CONTROLLERS ) {
-
+    
 var Controller = {};
 
 Controller.handle = function(){
-    this.startLogin();
+    this.startRegister();
     
     return this.ready.resolve();
 };
 
-Controller.startLogin = function(){
+Controller.startRegister = function(){
     // handle form submit
-    $('form#login').on('submit', this.onSubmitForm);
+    $('form#register').on('submit', this.onSubmitForm);
 };
 
 Controller.onSubmitForm = function(event){
@@ -24,12 +24,10 @@ Controller.onSubmitForm = function(event){
     // grab the form
     var form = this;
     
-    // do login
-    EXPRESS.AUTH.Login(form)
+    // do register
+    EXPRESS.AUTH.Register(form)
     .done(function(data, textStatus, jqXHR){
         // console.log(data);
-        EXPRESS.LOCALSTORAGE.save( {access_token: data['api_token']} );
-        EXPRESS.FUNCTIONS.redirect('dashboard');
     })
     .fail(function(jqXHR, textStatus, errorThrown){
         var e = EXPRESS.API.UTILITY.formatError(jqXHR.responseJSON);
@@ -42,6 +40,6 @@ Controller.onSubmitForm = function(event){
 };
 
 // register and  extend the base controller
-CONTROLLERS['LOGIN'] = CONTROLLERS.Factory(Controller);
-
+CONTROLLERS['REGISTER'] = CONTROLLERS.Factory(Controller);
+    
 }( jQuery, CONTROLLERS ));

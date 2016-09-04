@@ -37,25 +37,25 @@ API.post = function( settings ){
 	return this.call( settings );
 };
 
-API.Login = function(settings){
-	var _settings = {
-		url: '/auth/login',
-		token: null
-	};
-	
-	// method's own settings overwrite the ones passed down to the function
-	settings = $.extend(settings, _settings);
-	return this.post(settings);
-};
-
-API.validateAccessToken = function( token ){
-	return this.get({
-		url: '/token/validate',
-		token: token,
-		beforeSend: function(jqXHR, settings){
-			if( !token ){ jqXHR.abort() }
-		}
-	});
-};
+// API.Login = function(settings){
+// 	var _settings = {
+// 		url: '/auth/login',
+// 		token: null
+// 	};
+// 	
+// 	// method's own settings overwrite the ones passed down to the function
+// 	settings = $.extend(settings, _settings);
+// 	return this.post(settings);
+// };
+// 
+// API.validateAccessToken = function( token ){
+// 	return this.get({
+// 		url: '/token/validate',
+// 		token: token,
+// 		beforeSend: function(jqXHR, settings){
+// 			if( !token ){ jqXHR.abort() }
+// 		}
+// 	});
+// };
 
 }( jQuery, EXPRESS, EXPRESS.LOCALSTORAGE ));

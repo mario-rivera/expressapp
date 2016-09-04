@@ -13,13 +13,14 @@ body.public{
 	.page-header{
 		position: relative;
 		background: @public-bg-lighter;
-		padding: 100px 0; 
+		padding: 100px 0;
+		margin-bottom: 30px;
 	}
 	
 	.centered{
 		position: relative;
 		width: 50%;
-		min-width: 320px;
+		// min-width: 320px;
 		margin: 0 auto;
 		text-align: center;
 	}
@@ -52,6 +53,25 @@ body.public{
 
 			&:focus{
 				border-color: rgba(98, 111, 133, 0.5);
+			}
+		}
+		
+		.button,
+		button,
+		input[type="submit"],
+		input[type="reset"],
+		input[type="button"]{
+			// border: 0;
+			// width: 100%;
+			text-align: left;
+			color: #fff;
+			border-color: rgba(98, 111, 133, 0.5);
+
+			.transition-all( 0.5s, ease-out );
+
+			&:hover,
+			&:focus{
+				background: #373e4a;
 			}
 		}
 	}

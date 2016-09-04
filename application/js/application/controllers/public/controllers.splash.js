@@ -6,7 +6,7 @@
 */
 (function ( $, CONTROLLERS ) {
     
-var Controller = Namespace( 'SPLASH', CONTROLLERS );
+var Controller = {};
 
 Controller.handle = function(){
     
@@ -21,6 +21,11 @@ Controller.handle = function(){
         // console.log(data);
         EXPRESS.FUNCTIONS.redirect('dashboard');
     });
+    
+    return this.ready.promise();
 };
+
+// register and  extend the base controller
+CONTROLLERS['SPLASH'] = CONTROLLERS.Factory(Controller);
 
 }( jQuery, CONTROLLERS ));

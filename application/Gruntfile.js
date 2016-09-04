@@ -81,25 +81,25 @@ module.exports = function(grunt){
 			// Site
 			site: {
 				files: {
-                    // Application
-					'<%= site.src %>/grunt/express.js': [
+                    // Application Foundation
+					'<%= site.src %>/grunt/express.foundation.js': [
 						'<%= site.src %>/js/application/express/_express.js',
-                        '<%= site.src %>/js/application/express/functions/express.functions.js',
-						'<%= site.src %>/js/application/express/storage/express.localstorage.js',
-                        '<%= site.src %>/js/application/express/messages/express.messages.js',
-						'<%= site.src %>/js/application/express/api/express.api.js',
-						'<%= site.src %>/js/application/express/api/express.api.ajax.js',
-                        '<%= site.src %>/js/application/express/api/express.api.utility.js',
-                        '<%= site.src %>/js/application/express/auth/express.auth.js',
-                        '<%= site.src %>/js/application/express/user/express.user.js'
+                        '<%= site.src %>/js/application/express/foundation/functions/express.functions.js',
+						'<%= site.src %>/js/application/express/foundation/storage/express.localstorage.js',
+                        '<%= site.src %>/js/application/express/foundation/messages/express.messages.js',
+						'<%= site.src %>/js/application/express/foundation/api/express.api.js',
+						'<%= site.src %>/js/application/express/foundation/api/express.api.ajax.js',
+                        '<%= site.src %>/js/application/express/foundation/api/express.api.utility.js',
+                        '<%= site.src %>/js/application/express/foundation/api/components/**/*.js'
 					],
+                    // Application Logic
+                    '<%= site.src %>/grunt/express.service.js': [
+                        '<%= site.src %>/js/application/express/service/**/*.js'
+                    ],
                     // Controllers
                     '<%= site.src %>/grunt/controllers.js': [
                         '<%= site.src %>/js/application/controllers/_controllers.js',
-                        '<%= site.src %>/js/application/controllers/**/*.js',
-                        // '<%= site.src %>/js/application/controllers/controllers.splash.js',
-                        // '<%= site.src %>/js/application/controllers/public/controllers.login.js',
-                        // '<%= site.src %>/js/application/controllers/app/controllers.app.js'
+                        '<%= site.src %>/js/application/controllers/**/*.js'
                     ]
 				}
 			}
@@ -113,7 +113,11 @@ module.exports = function(grunt){
 			},
 			site: {
 				files: {
-                    '<%= site.dest %>/js/application/application.min.js': ['<%= site.src %>/grunt/express.js', '<%= site.src %>/grunt/controllers.js'],
+                    '<%= site.dest %>/js/application/application.min.js': [
+                        '<%= site.src %>/grunt/express.foundation.js', 
+                        '<%= site.src %>/grunt/express.service.js', 
+                        '<%= site.src %>/grunt/controllers.js'
+                    ],
                     '<%= site.dest %>/js/main.min.js': '<%= site.src %>/js/application/document.ready.js'
 				}
 			}
