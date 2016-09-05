@@ -6,12 +6,12 @@
 */
 (function ( $, CONTROLLERS ) {
 
-var Controller = {};
+var Controller = Namespace( 'LOGIN', CONTROLLERS );
 
 Controller.handle = function(){
     this.startLogin();
     
-    return this.ready.resolve();
+    return this.handled.resolve();
 };
 
 Controller.startLogin = function(){
@@ -40,8 +40,5 @@ Controller.onSubmitForm = function(event){
         }
     });
 };
-
-// register and  extend the base controller
-CONTROLLERS['LOGIN'] = CONTROLLERS.Factory(Controller);
 
 }( jQuery, CONTROLLERS ));

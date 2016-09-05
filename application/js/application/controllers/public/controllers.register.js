@@ -5,13 +5,13 @@
 |
 */
 (function ( $, CONTROLLERS ) {
-    
-var Controller = {};
+
+var Controller = Namespace( 'REGISTER', CONTROLLERS );
 
 Controller.handle = function(){
     this.startRegister();
     
-    return this.ready.resolve();
+    return this.handled.resolve();
 };
 
 Controller.startRegister = function(){
@@ -38,8 +38,5 @@ Controller.onSubmitForm = function(event){
         }
     });
 };
-
-// register and  extend the base controller
-CONTROLLERS['REGISTER'] = CONTROLLERS.Factory(Controller);
     
 }( jQuery, CONTROLLERS ));

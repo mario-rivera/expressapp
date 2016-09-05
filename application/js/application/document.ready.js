@@ -24,10 +24,11 @@
             $(document).ready( app.onDocumentReady );
         },
         onDocumentReady: function(){
-            var controller = $('body').data('controller');
+            var controllerName = $('body').data('controller');
             // if a controller is defined run it's handle method
-            if( typeof CONTROLLERS[controller] !== 'undefined' ){
-                CONTROLLERS[controller].handle();
+            if( typeof CONTROLLERS[controllerName] !== 'undefined' ){
+                // CONTROLLERS[controllerName].handle();
+                CONTROLLERS.Factory( CONTROLLERS[controllerName] );
             }
         }
     };

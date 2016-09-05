@@ -3,11 +3,33 @@ var CONTROLLERS = CONTROLLERS || {};
 (function ( $, CONTROLLERS ) {
     
 var Controller = function(){
-    this.ready = $.Deferred();
+    this.handled = $.Deferred();
+    $.when( this.ready() ).done( this.handle );
+};
+
+Controller.prototype.ready = function(){
+    var $ready = $.Deferred();
+    var _this = this;
+    
+    if( typeof this.Filters === 'undefined' || !this.Filters.length ){
+        $ready.resolveWith( _this ); 
+    } else {
+        var handled = [];
+        for( var i=0; i < this.Filters.length; i++ ){
+            var controller = CONTROLLERS.Factory( CONTROLLERS[ this.Filters[i] ] );
+            handled.push( controller.handled );
+        }
+        
+        $.when.apply( $, handled ).done(function(){
+            $ready.resolveWith( _this );
+        });
+    }
+    
+    return $ready.promise();
 };
 
 Controller.prototype.handle = function(){
-    return this.ready.resolve();    
+    return this.handled.resolve();    
 };
 
 CONTROLLERS.Factory = function( _prototype ){
