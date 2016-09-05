@@ -7,7 +7,6 @@
 (function ( $, CONTROLLERS ) {
 
 var Controller = Namespace( 'SPLASH', CONTROLLERS );
-// Controller.Filters = ['APP'];
 
 Controller.handle = function(){
     var _this = this;

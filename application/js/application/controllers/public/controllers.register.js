@@ -28,6 +28,8 @@ Controller.onSubmitForm = function(event){
     EXPRESS.AUTH.Register(form)
     .done(function(data, textStatus, jqXHR){
         // console.log(data);
+        EXPRESS.LOCALSTORAGE.save( {access_token: data['api_token']} );
+        EXPRESS.FUNCTIONS.redirect('dashboard');
     })
     .fail(function(jqXHR, textStatus, errorThrown){
         var e = EXPRESS.API.UTILITY.formatError(jqXHR.responseJSON);
