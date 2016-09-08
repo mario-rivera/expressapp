@@ -15,6 +15,11 @@ html(class="no-js", lang="")
         link(rel="stylesheet", href="css/theme.min.css?v=" + site.timestamp)
         block styles
     body(class=bodyclass, data-controller=controller)
+        // loader
+        div(class="loader-container clock")
+            div(class="loader")
+                div(class="arc")
+                
         block content
         
         include ../includes/block.scripts.pug

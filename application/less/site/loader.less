@@ -1,0 +1,124 @@
+// source: http://fareco.github.io/css-loader/
+.loader-container .loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+
+.loader-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: #303641;
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@-webkit-keyframes squareRotate3d {
+  25% {
+    -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0);
+            transform: perspective(100px) rotateX(180deg) rotateY(0);
+  }
+  50% {
+    -webkit-transform: perspective(100px) rotateX(180deg) rotateY(-180deg);
+            transform: perspective(100px) rotateX(180deg) rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: perspective(100px) rotateX(0) rotateY(-180deg);
+            transform: perspective(100px) rotateX(0) rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: perspective(100px) rotateX(0) rotateY(0);
+            transform: perspective(100px) rotateX(0) rotateY(0);
+  }
+}
+
+@keyframes squareRotate3d {
+  25% {
+    -webkit-transform: perspective(100px) rotateX(180deg) rotateY(0);
+            transform: perspective(100px) rotateX(180deg) rotateY(0);
+  }
+  50% {
+    -webkit-transform: perspective(100px) rotateX(180deg) rotateY(-180deg);
+            transform: perspective(100px) rotateX(180deg) rotateY(-180deg);
+  }
+  75% {
+    -webkit-transform: perspective(100px) rotateX(0) rotateY(-180deg);
+            transform: perspective(100px) rotateX(0) rotateY(-180deg);
+  }
+  100% {
+    -webkit-transform: perspective(100px) rotateX(0) rotateY(0);
+            transform: perspective(100px) rotateX(0) rotateY(0);
+  }
+}
+
+/*
+* Clock Loader
+*/
+.clock .loader {
+  width: 100px;
+  height: 100px;
+}
+.clock .loader .arc {
+  position: relative;
+  margin: 23% 0 0 23%;
+  border: 2px solid #FFF;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.clock .loader .arc::after, .clock .loader .arc::before {
+  content: '';
+  position: absolute;
+  top: 4%;
+  left: 48%;
+  width: 4%;
+  height: 46%;
+  background-color: #FFF;
+  -webkit-transform-origin: 50% 100%;
+      -ms-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  border-radius: 5px;
+  -webkit-animation: rotate 2s infinite linear;
+          animation: rotate 2s infinite linear;
+}
+.clock .loader .arc::after {
+  height: 36%;
+  top: 14%;
+  -webkit-animation-duration: 12s;
+          animation-duration: 12s;
+}
+
+/*
+* Square Rotate Loader
+*/
+.square-rotate-3d .loader {
+  width: 100px;
+  height: 100px;
+}
+.square-rotate-3d .loader .square {
+  margin-top: 25%;
+  margin-left: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: #FFF;
+  -webkit-animation: squareRotate3d 2s infinite ease-in-out;
+          animation: squareRotate3d 2s infinite ease-in-out;
+}
