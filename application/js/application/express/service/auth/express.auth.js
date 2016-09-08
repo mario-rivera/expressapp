@@ -95,4 +95,11 @@ Auth.Register = function(form){
     return API.AUTH.Register(xhrsettings);
 };
 
+Auth.SavePostLoginData = function(data){
+    return LOCALSTORAGE.save({
+        access_token: data['api_token'],
+        user: data['user']
+    });
+};
+
 }( jQuery, EXPRESS ));

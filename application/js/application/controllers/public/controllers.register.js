@@ -27,8 +27,7 @@ Controller.onSubmitForm = function(event){
     // do register
     EXPRESS.AUTH.Register(form)
     .done(function(data, textStatus, jqXHR){
-        // console.log(data);
-        EXPRESS.LOCALSTORAGE.save( {access_token: data['api_token']} );
+        EXPRESS.AUTH.SavePostLoginData( data );
         EXPRESS.FUNCTIONS.redirect('dashboard');
     })
     .fail(function(jqXHR, textStatus, errorThrown){
