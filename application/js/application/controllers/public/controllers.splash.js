@@ -19,9 +19,8 @@ Controller.handle = function(){
     
     EXPRESS.AUTH.check()
     .done(function(data, textStatus, jqXHR){
-        // console.log(data);
-        _this.handled.resolve();
         EXPRESS.FUNCTIONS.redirect('dashboard');
+        // _this.handled.resolve();
     });
     
     return this.handled.promise();

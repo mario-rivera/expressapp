@@ -23,4 +23,8 @@ FUNCTIONS.redirect = function( location ){
     return window.location.assign( location );
 };
 
+FUNCTIONS.hideAppLoader = function(){
+    $("#app-loader").fadeOut('slow');    
+};
+
 }( jQuery, EXPRESS ));

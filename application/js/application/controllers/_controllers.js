@@ -4,10 +4,13 @@ var CONTROLLERS = CONTROLLERS || {};
     
 var Controller = function(){
     this.handled = $.Deferred();
-    $.when( this.ready() ).done( this.handle );
 };
 
-Controller.prototype.ready = function(){
+Controller.prototype.run = function(){
+    $.when( this.initialize() ).done( this.handle() );
+};
+
+Controller.prototype.initialize = function(){
     var $ready = $.Deferred();
     var _this = this;
     
@@ -18,6 +21,8 @@ Controller.prototype.ready = function(){
         for( var i=0; i < this.Filters.length; i++ ){
             var controller = CONTROLLERS.Factory( CONTROLLERS[ this.Filters[i] ] );
             handled.push( controller.handled );
+            
+            controller.run();
         }
         
         $.when.apply( $, handled ).done(function(){

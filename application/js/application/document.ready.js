@@ -25,10 +25,14 @@
         },
         onDocumentReady: function(){
             var controllerName = $('body').data('controller');
-            // if a controller is defined run it's handle method
+            // create a controller if it's defined
             if( typeof CONTROLLERS[controllerName] !== 'undefined' ){
-                // CONTROLLERS[controllerName].handle();
-                CONTROLLERS.Factory( CONTROLLERS[controllerName] );
+                var controller = CONTROLLERS.Factory( CONTROLLERS[controllerName] );
+                
+                $.when( controller.handled ).always(function(){
+                    EXPRESS.FUNCTIONS.hideAppLoader();
+                });
+                controller.run();
             }
         }
     };
