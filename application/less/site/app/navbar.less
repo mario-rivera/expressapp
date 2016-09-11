@@ -20,8 +20,17 @@ nav > ul > li {
 nav > ul > li > a{
 	padding: 15px;
 	display: block;
+    color: @body-color;
+    
+    &:hover,
+    &:focus{
+        color: lighten(@body-color, 20%);;
+    }
 }
 
+nav > ul > li > a > .fa{
+    font-size: 1.8rem;
+}
 
 nav.navbar{
 	background-color: #FFF;
@@ -152,7 +161,7 @@ nav.navbar a.brand.text-brand{
 @media (min-width: 750px) {
 	.nav-sidebar{
 		/*Display sidebar*/
-		left: 0px;
+		left: 0px !important;
 		margin-top: 54px;
 	}
 }
